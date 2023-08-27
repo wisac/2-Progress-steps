@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+:root {
+    --line--border-fill:  #22bd6a;
+    --line-border-empty: #d7d7d7;
+    
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    display: flex;
+        align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh; /* we need height for align items to work*/
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 400px;
+
+}
+
+.progress-container::before {
+    content: ""; /*Needed for before selector to work*/
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 5px;
+    width: 100%;
+    z-index: -1;
+    transition: 0.5s ease-in-out;
+}
+
+
+.progress {
+    background-color: var(--line--border-fill);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 5px;
+    width: 0;
+    z-index: -1;
+    transition: 0.5s ease-in-out;
+}
+
+
+.circle {
+    background-color: #fff;
+    color:#b2b2b2;
+    border: 5px solid var(--line-border-empty);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.circle.active {
+    border-color: var(--line--border-fill);
+}
+
+.btn {
+    background-color: var(--line--border-fill);
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 10px 40px;
+    margin: 8px;
+    font-size: 14px;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn:hover {
+    background-color: #31d37d;
+}
